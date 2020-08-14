@@ -1,6 +1,6 @@
 all: serial
 
-CMAKE_FLAGS := -DCMAKE_INSTALL_PREFIX=/tmp/usr/local
+CMAKE_FLAGS := -DCMAKE_INSTALL_PREFIX=/usr/local -DBUILD_SHARED_LIBS=OFF
 UNAME := $(shell uname -s)
 
 install_deps:
@@ -24,7 +24,7 @@ else
 	sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
 	wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 	sudo apt-get update
-	sudo apt-get install ros-hydro-catkin libboost-dev
+	sudo apt-get install ros-melodic-catkin libboost-dev
 	echo "source /opt/ros/hydro/setup.bash" > setup.bash
 endif
 
